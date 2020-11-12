@@ -70,7 +70,7 @@ def findvalue():
 try:
     value = 0
     start = time.time()
-    while value<240:
+    while value<243:
         GPIO.output(17,1)
         value = adc()
         Voltage = float(value)*3.3/255
@@ -79,9 +79,9 @@ try:
         t.append(time.time()-start)
         time.sleep(0.001)
     GPIO.output(17,0)
-    while value>2:
+    while value>5:
         value = adc()
-        Voltage = float(value)*3.3/255
+        Voltage = float(value)*0.01289
         print("Digital value:", value, "Analog value:%.2f V" % (Voltage))
         s.append(value)
         t.append(time.time()-start)
